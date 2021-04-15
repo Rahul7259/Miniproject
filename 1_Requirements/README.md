@@ -4,7 +4,7 @@
 
 ## Complex Calculator
 
-This project is designed for operating on complex numbers. It can take 2 complex numbers and do various operations as per the requirement.It does addtion,subtraction , nultiplication and division of complex number and it is also user friendly.
+The project is based on doing acomplex operations in a calculator like tan() of a number. It helps the user quickly find answer of any complex problem like finding square of a huge number. The project being user friendly makes this project very polpular.
 
 ## Defining system
 
@@ -18,15 +18,15 @@ This project is designed for operating on complex numbers. It can take 2 complex
             Anyone who wants to solve complex operation can use this calculator
     
    ### What:
-          The project is a calculator for complex numbers.
+          The project is a calculator for complex operations.
    
    ### When:
-           This calculator can be used when ever.
+           This calculator can be used when ever student or any pearson needs to find some large square roots or power values.
    
    ### Where:
            This is computer based calculator compatible with C environment and can perform complex operations.
    ### How:
-          This calculator just takes the complex inputs and performs complex operation as user gives the input.
+          This calculator just takes the user input for any of complex operation of square root, power of any number, logarthmic value of a number,tan,sin or cos values of a number.
          
        
 ## Detail requirements
