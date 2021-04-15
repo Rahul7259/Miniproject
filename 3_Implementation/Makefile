@@ -55,7 +55,7 @@ run_test:final_test.$(EXEC)
 	$(EXEC_T)
 
 #command to check the code coverage
-coverageCheck:
+coverage:
 	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 -I $(inc_h) -I $(inc_uh) $(files) $(files_u) $(test_u) -o TEST_OUTPUT.out
 	./TEST_OUTPUT.out
 
