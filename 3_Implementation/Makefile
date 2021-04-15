@@ -1,7 +1,4 @@
-PROJ_NAME = vaccine_proj
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
-
-SRC =src/func_log.c\
+files= src/func_log.c\
 src/func_power.c\
 src/func_sqrt.c\
 src/func_main_menu.c\
@@ -11,62 +8,57 @@ src/func_cos.c\
 src/func_tan.c\
 src/func_trigo_menu.c\
 
+#variables declaration
 
-COV_SRC = test_project.c
+inc_h=inc
+inc_uh= unity
+files_u= unity/unity.c
+test_u= test/test_project.c
 
-TEST_SRC = test/test_project.c \
-unity/unity.c 
-INC_H = inc
-INC_T = unity
-
+#Taking extension according to the OS
 ifdef OS
-   RM = del 
-   FixPath = $(subst /,\,$1)
    EXEC = exe
 else
    ifeq ($(shell uname), Linux)
-      RM = rm -rf
-      FixPath = $1
-	  EXEC = out
+	  EXEC = out -lm
    endif
-endif
-.PHONY: run clean test doc all
+endif 
 
-all:
-	gcc -I $(INC_H) $(SRC) main.c -o $(call FixPath,$(PROJ_NAME).$(EXEC))
-	
-run:
-	$(call FixPath,$(PROJ_NAME).$(EXEC))
-test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+#Taking extension according to the OS
+ifdef OS
+   EXEC_T = final_test.exe
+else
+   ifeq ($(shell uname), Linux)
+	  EXEC_T = ./final_test.out
+   endif
+endif 
 
-coverage:
-	cp test/test.c .
-	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) unity/unity.c test_project.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath, ./$(TEST_PROJ_NAME).$(EXEC))
-	gcov -a $(COV_SRC)
-	$(RM) *.$(EXEC)
-	$(RM) *.gcda
-	$(RM) *.gcno
-	$(RM) *.c.gcov
-	$(RM) *.DAT
-	$(RM) test_project.c
+#command to bulild the application
 
+all: $(files) main.c
+	gcc -I $(inc_h)  $(files)  main.c -o final.$(EXEC)
 
-cppcheck:
-	cppcheck --enable=all $(SRC) main.c
-debug:
-	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
-	gdb $(PROJ_NAME).$(EXEC)
+#command to run the application
+run:final.$(EXEC)
+	final.$(EXEC)
 
+#command to analyaze the code dynamically
 valgrind:
-	valgrind ./$(TEST_PROJ_NAME).$(EXEC)
+	valgrind ./final.$(EXEC)
 
+#command to build the test application with unity
+create_test: $(files) $(test_u) 
+	gcc -I $(inc_h) -I $(inc_uh) $(files) $(files_u) $(test_u)  -o final_test.$(EXEC)
 
+#command to run the test application
+run_test:final_test.$(EXEC)
+	$(EXEC_T)
+
+#command to check the code coverage
+coverageCheck:
+	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 -I $(inc_h) -I $(inc_uh) $(files) $(files_u) $(test_u) -o TEST_OUTPUT.out
+	./TEST_OUTPUT.out
+
+#command to clean the files
 clean:
-	$(RM) *.DAT
-	$(RM) *.$(EXEC)
-	$(RM) *.gcda
-	$(RM) *.gcno
-	$(RM) *.c.gcov
+	del *.$(EXEC)
