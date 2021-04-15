@@ -10,8 +10,7 @@ src/complex_product.c
 
 COV_SRC = test_complex_calculator.c
 
-TEST_SRC = Test/test_complex_calculator.c \
-
+TEST_SRC = Test/test_complex_calculator.c\
 Unity/unity.c\ 
 INC_H = inc
 INC_T = Unity
@@ -40,7 +39,7 @@ test:
 
 coverage:
 	cp Test/test_complex_calculator.c .
-	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) unity/unity.ctest_complex_calculator.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) Unity/unity.c test_complex_calculator.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
 	$(call FixPath, ./$(TEST_PROJ_NAME).$(EXEC))
 	gcov -a $(COV_SRC)
 	$(RM) *.$(EXEC)
