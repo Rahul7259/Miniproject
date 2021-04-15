@@ -12,9 +12,9 @@ COV_SRC = test_complex_calculator.c
 
 TEST_SRC = Test/test_complex_calculator.c \
 
-unity/unity.c 
+Unity/unity.c 
 INC_H = inc
-INC_T = unity
+INC_T = Unity
 
 ifdef OS
    RM = del 
