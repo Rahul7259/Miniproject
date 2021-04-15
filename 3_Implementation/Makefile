@@ -4,9 +4,9 @@ TEST_PROJ_NAME = Test_$(PROJ_NAME)
 SRC = src/complex_sum.c\
 src/complex_difference.c\
 src/complex_division.c\
-src/complex_product.c.
+src/complex_product.c
 
-COV_SRC = test_complex_calculator.c
+header_SRC = test_complex_calculator.c
 
 TEST_SRC = Test/test_complex_calculator.c \
 Unity/unity.c 
@@ -36,15 +36,13 @@ test:
 	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
 
 coverage:
-	cp Test/test_complex_calculator.c.
-	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) Unity/unity.ctest_complex_calculator.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
+	cp test/test.c .
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) Unity/unity.c test_complex_calculator.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
 	$(call FixPath, ./$(TEST_PROJ_NAME).$(EXEC))
-	gcov -a $(COV_SRC)
+	gcov -a $(Bank_SRC)
 	$(RM) *.$(EXEC)
-	$(RM) *.gcda
-	$(RM) *.gcno
-	$(RM) *.c.gcov
-	$(RM) *.DAT
+	
+	
 	$(RM) test_complex_calculator.c
 
 
@@ -59,8 +57,5 @@ valgrind:
 
 
 clean:
-	$(RM) *.DAT
+	
 	$(RM) *.$(EXEC)
-	$(RM) *.gcda
-	$(RM) *.gcno
-	$(RM) *.c.gcov
