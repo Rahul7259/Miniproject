@@ -8,11 +8,12 @@ src/func_cos.c\
 src/func_tan.c\
 src/func_trigo_menu.c\
 
+#variables declaration
 
 inc_h=inc
 inc_uh= unity
-files_u= Unity/unity.c
-test_u= Test/test_project.c
+files_u= unity/unity.c
+test_u= test/test_project.c
 
 #Taking extension according to the OS
 ifdef OS
@@ -35,7 +36,7 @@ endif
 #command to bulild the application
 
 create: $(files) main.c
-	gcc -I $(inc_h)  $(files)  main.c -o final.$(EXEC)
+	gcc -I $(inc_h)  $(files) main.c -o final.$(EXEC)
 
 #command to run the application
 run:final.$(EXEC)
