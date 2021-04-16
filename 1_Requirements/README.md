@@ -10,7 +10,7 @@ The project is based on doing acomplex operations in a calculator like tan() of 
 
 
 ## SWOT Analysis
- 1_Requirements/Screenshot (254).png
+ ![Drag Racing](https://github.com/Rahul7259/Miniproject/blob/aa40e7d4af0cdedb2f87abdb681fb2455dec9d7f/1_Requirements/Screenshot%20(254).png)
 
 ## 4W's and 1'H
    
