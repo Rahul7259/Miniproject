@@ -7,7 +7,11 @@
 The project is based on doing acomplex operations in a calculator like tan() of a number. It helps the user quickly find answer of any complex problem like finding square of a huge number. The project being user friendly makes this project very polpular.
 
 ## Defining system
-
+   Scientific calculator does following operations:
+      1) Square Root
+      2) Square of a number
+      3) Logarithmic value of a number
+      4) Trignometric operations like sin,cos and tan
 
 ## SWOT Analysis
  ![Drag Racing](https://github.com/Rahul7259/Miniproject/blob/aa40e7d4af0cdedb2f87abdb681fb2455dec9d7f/1_Requirements/Screenshot%20(254).png)
