@@ -10,7 +10,7 @@ The project is based on doing acomplex operations in a calculator like tan() of 
 
 
 ## SWOT Analysis
-  https://github.com/Rahul7259/Miniproject/blob/c5b18083eaafe9c4d32e70ce06714a965ee5a5e8/1_Requirements/Screenshot%20(254).png
+ 1_Requirements/Screenshot (254).png
 
 ## 4W's and 1'H
    
